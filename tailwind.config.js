@@ -1,8 +1,6 @@
-//tailwind를 커스터마이즈 하기 위한 모듈
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}", // 적용할 js파일 경로 지정
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {},
   },
