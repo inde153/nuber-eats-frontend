@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  @apply bg-gray-100 shadow-inner focus:ring-2 focus:ring-green-800 focus:outline-none focus:ring-opacity-90 py-3 px-5 rounded-lg;
+}
+
+.btn {
+  @apply hover:opacity-90 focus:outline-none py-3 px-5 bg-gray-800 text-white text-lg rounded-lg;
+}
