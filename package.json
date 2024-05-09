@@ -24,7 +24,7 @@
   },
   "scripts": {
     "tailwind:build": "npx tailwindcss-cli@latest build -i src/styles/tailwind.css -o src/styles/styles.css",
-    "start": "npm run tailwind:build & react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "generate": "graphql-codegen",
     "test": "react-scripts test",
