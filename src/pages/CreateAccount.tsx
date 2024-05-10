@@ -47,7 +47,7 @@ export const CreateAccount = () => {
     } = data;
     if (ok) {
       //redirect
-      navigate('/login');
+      navigate('/');
     }
   };
   // const onError = (error: ApolloError) => {};
@@ -116,7 +116,7 @@ export const CreateAccount = () => {
         </form>
         <div>
           Already have an account?{' '}
-          <Link to="/login" className="text-lime-600 hover:underline">
+          <Link to="/" className="text-lime-600 hover:underline">
             Login now
           </Link>
         </div>

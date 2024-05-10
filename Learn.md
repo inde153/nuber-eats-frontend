@@ -21,3 +21,5 @@ package.json에서 "generate": "graphql-codegen" 추가
 /src/gql/graphql.ts파일에 타입들이 다 generate 됩니다.
 
 https://emailregex.com/#google_vignette
+
+Redirect삭제, element로 Navigate를 넣기
