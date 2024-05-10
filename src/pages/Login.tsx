@@ -3,6 +3,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { isLoggedInVar } from '../apollo';
+import { emailRegex } from '../common/pattern';
 import { Button } from '../components/Button';
 import { FormError } from '../components/FormError';
 import { LoginMutation, LoginMutationVariables } from '../gql/graphql';
@@ -41,6 +43,7 @@ export const Login = () => {
     } = data;
     if (ok) {
       console.log(token);
+      isLoggedInVar(true);
     }
   };
   // const onError = (error: ApolloError) => {};
@@ -78,7 +81,11 @@ export const Login = () => {
         <img src={nuberLogo} className="w-52 mb-10" />
         <h4 className="w-full font-bold text-left text-3xl mb-5">Welcome back</h4>
         <form className="grid gap-3 mt-5 w-full mb-5" onSubmit={handleSubmit(onSubmit)}>
-          <input {...register('email', { required: 'Email is required' })} placeholder="Email" className="input" />
+          <input
+            {...register('email', { required: 'Email is required', pattern: { value: emailRegex, message: 'Please enter a valid email' } })}
+            placeholder="Email"
+            className="input"
+          />
           {errors.email?.message && <FormError errorMessage={errors.email?.message} />}
           <input
             {...register('password', {
