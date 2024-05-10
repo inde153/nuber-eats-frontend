@@ -3,7 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { authToken, isLoggedInVar } from '../apollo';
+import { authTokenVar, isLoggedInVar } from '../apollo';
 import { LOCALSTORAGE_TOKEN } from '../common/constants';
 import { emailRegex } from '../common/pattern';
 import { Button } from '../components/Button';
@@ -44,7 +44,7 @@ export const Login = () => {
     } = data;
     if (ok && token) {
       localStorage.setItem(LOCALSTORAGE_TOKEN, token);
-      authToken(token);
+      authTokenVar(token);
       isLoggedInVar(true);
     }
   };
