@@ -1,7 +1,9 @@
 import { ApolloError, gql, useMutation } from '@apollo/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { FormError } from '../components/form-error';
+import { Link } from 'react-router-dom';
+import { Button } from '../components/Button';
+import { FormError } from '../components/FormError';
 import { LoginMutation, LoginMutationVariables } from '../gql/graphql';
 const nuberLogo = 'https://www.ubereats.com/_static/8b969d35d373b512664b78f912f19abc.svg';
 
@@ -25,10 +27,12 @@ export const Login = () => {
   const {
     register,
     getValues,
-    formState: { errors },
     watch,
     handleSubmit,
-  } = useForm<ILoginForm>();
+    formState: { errors, isValid },
+  } = useForm<ILoginForm>({
+    mode: 'onChange',
+  });
 
   const onCompleted = (data: LoginMutation) => {
     const {
@@ -69,7 +73,7 @@ export const Login = () => {
       <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
         <img src={nuberLogo} className="w-52 mb-10" />
         <h4 className="w-full font-bold text-left text-3xl mb-5">Welcome back</h4>
-        <form className="grid gap-3 mt-5 w-full" onSubmit={handleSubmit(onSubmit)}>
+        <form className="grid gap-3 mt-5 w-full mb-5" onSubmit={handleSubmit(onSubmit)}>
           <input {...register('email', { required: 'Email is required' })} placeholder="Email" className="input" />
           {errors.email?.message && <FormError errorMessage={errors.email?.message} />}
           <input
@@ -82,9 +86,15 @@ export const Login = () => {
             className="input"
           />
           {errors.password?.message && <FormError errorMessage={errors.password?.message} />}
-          <button className="btn">{loading ? 'Loading...' : 'LogIn'}</button>
+          <Button canClick={isValid} loading={loading} actionText={'Login'} />
           {loginMutationResult?.login.error && <FormError errorMessage={loginMutationResult.login.error} />}
         </form>
+        <div>
+          New to Nuber?{' '}
+          <Link to="/signup" className="text-lime-600 hover:underline">
+            Create an Account
+          </Link>
+        </div>
       </div>
     </div>
   );
