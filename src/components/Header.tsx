@@ -5,12 +5,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 const nuberLogo = 'https://www.ubereats.com/_static/8b969d35d373b512664b78f912f19abc.svg';
 
-interface IHeaderProps {
-  email: string;
-}
-
 //커스텀 훅을 사용하여 쿼리를 부를 경우 아폴로에서 자동으로 캐싱을 가져 옴
-export const Header = () => {
+export const Header: React.FC = () => {
   const { data } = useMe();
 
   return (
