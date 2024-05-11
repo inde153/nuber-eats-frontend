@@ -23,3 +23,24 @@ package.json에서 "generate": "graphql-codegen" 추가
 https://emailregex.com/#google_vignette
 
 Redirect삭제, element로 Navigate를 넣기
+
+<!-- CSS -->
+
+<!-- em은 element의 폰트 크기에 좌우가 된다.
+예로 div가 있고 font사이즈가 50px이라면
+mgargin Top의 1em도 50px이다
+2em이라면 100px이다.
+
+rem은 root의 em이다.
+div가 있어도 2rem은 100px가 되지 않는다.
+rem은 body의 font사이즈의 em으로 한다.
+그래서 body font 사이즈가 5라면 2rem은 10이 된다. -->
+
+[React.js] React에서 Font Awesome 사용하기
+
+<!-- npm i @fortawesome/fontawesome-svg-core
+npm i @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+npm i @fortawesome/react-fontawesome -->
+
+출처 :
+https://sunho-doing.tistory.com/entry/Reactjs-React%EC%97%90%EC%84%9C-Font-Awesome-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
